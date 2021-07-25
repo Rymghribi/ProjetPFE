@@ -23,18 +23,20 @@ DISK_SIZE=10*GB
 ADD_DISK_FLAG=false
 
 MACHINES= [
-  { name: "control"   , ip: ip(101), primary: true , cpus: 1, mem: 1024      , add_disk: false },
-  { name: "servera"   , ip: ip(131), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
-  { name: "serverb"   , ip: ip(132), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
-  { name: "serverc"   , ip: ip(133), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
-  { name: "serverd"   , ip: ip(133), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
+  { name: "control"   , ip: ip(101), primary: true , cpus: 1, mem: NODE_RAM  , add_disk: false },
+  { name: "master1"   , ip: ip(131), primary: false, cpus: 2, mem: 2048  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
+  { name: "master2"   , ip: ip(132), primary: false, cpus: 2, mem: 2048  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
+  { name: "master3"   , ip: ip(133), primary: false, cpus: 2, mem: 2048  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
+  { name: "node1"   , ip: ip(134), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
+  { name: "node2"   , ip: ip(135), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
+  { name: "LB"   , ip: ip(136), primary: false, cpus: 1, mem: NODE_RAM  , add_disk: ADD_DISK_FLAG, size: DISK_SIZE },
 ]
 
 ANSIBLE_VARS="ansible/inventory/vars.yml"
 
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/centos-7.6"
+  config.vm.box = "bento/ubuntu-18.04"
 
   # we want to run graphical tools from machines
   config.ssh.forward_x11 = true

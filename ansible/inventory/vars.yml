@@ -3,13 +3,15 @@ all:
   hosts:
     control:
       node_ip: 172.22.22.101
-    facility:
-      node_ip: 172.22.22.141
-    master:
-      node_ip: 172.22.22.122
-    node1:
+    master1:
       node_ip: 172.22.22.131
-    node2:
+    master2:
       node_ip: 172.22.22.132
-    node3:
+    master3:
       node_ip: 172.22.22.133
+    node1:
+      node_ip: 172.22.22.134
+    node2:
+      node_ip: 172.22.22.135
+    LB:
+      node_ip: 172.22.22.136

@@ -1,0 +1,1 @@
+kubeadm join 172.22.22.133:6443 --token w08jhb.ehutnl5kuvgpemsm --discovery-token-ca-cert-hash sha256:cb3cac0f352d64f045a4920ac025516c5361de39253f7fc8bb8345643dc54b60 
